@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+>
+
+    <TextView
+        android:id="@+id/tvRepairCode"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:text="Codigo de reparacion" />
+
+    <TextView
+        android:id="@+id/tvClientCode"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Codigo De cliente "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvClientSurname"
+
+        />
+    <TextView
+
+        android:id="@+id/tvClientSurname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Apellido "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvRepairCode"
+
+
+        />
+    <TextView
+        android:id="@+id/tvFecha"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        tools:text="Fecha "
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvClientCode"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
