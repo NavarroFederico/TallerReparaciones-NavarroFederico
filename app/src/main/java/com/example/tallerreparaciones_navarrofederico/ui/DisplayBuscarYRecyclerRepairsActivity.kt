@@ -27,11 +27,11 @@ class DisplayBuscarYRecyclerRepairsActivity : AppCompatActivity() {
         val decoration = DividerItemDecoration(this, manager.orientation)
         binding.recyclerListaDeReparaciones.layoutManager = LinearLayoutManager(this)
         binding.recyclerListaDeReparaciones.adapter =
-            RepairAdapter(RepairRepository.get()) { repair -> onItemSelected(repair) }
+            RepairAdapter(RepairRepository.get()) { repair -> onClickItem(repair) }
 
         binding.recyclerListaDeReparaciones.addItemDecoration(decoration)
     }
-    fun onItemSelected(repair: Repair){
+    fun onClickItem(repair: Repair){
 
     }
 }
