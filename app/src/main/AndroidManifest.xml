@@ -13,8 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TallerReparacionesNavarroFederico"
         tools:targetApi="31">
+
         <activity
             android:name=".ui.DisplayMostrarFacturaActivity"
+            android:label="Factura"
             android:exported="true" />
         <activity
             android:name=".ui.DisplayBuscarYRecyclerRepairsActivity"
@@ -34,7 +36,6 @@
         <activity
             android:name=".ui.DisplayBotonOpcionesActivity"
             android:exported="true" />
-
     </application>
 
 </manifest>

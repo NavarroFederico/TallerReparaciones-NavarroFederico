@@ -1,13 +1,17 @@
 package com.example.tallerreparaciones_navarrofederico.ui
 
 import RepairRepository
+import android.content.Intent
 import android.os.Bundle
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.example.tallerreparaciones_navarrofederico.adapter.RepairAdapter
+import com.example.tallerreparaciones_navarrofederico.adapter.RepairsAdapter
 import com.example.tallerreparaciones_navarrofederico.databinding.ActivityDisplayBuscarYrecyclerRepairsBinding
 import com.example.tallerreparaciones_navarrofederico.entities.Repair
+
+val REPAIR_ID = "REPAIR_ID"
 
 class DisplayBuscarYRecyclerRepairsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDisplayBuscarYrecyclerRepairsBinding
@@ -18,20 +22,31 @@ class DisplayBuscarYRecyclerRepairsActivity : AppCompatActivity() {
         binding = ActivityDisplayBuscarYrecyclerRepairsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        initRecyclerViewRepairs()
+        setUpRecyclerViewRepairs()
 
     }
 
-    private fun initRecyclerViewRepairs() {
+    private fun setUpRecyclerViewRepairs() {
+        val selectRepairClickLister = { repair: Repair ->
+            Toast.makeText(this, "Mostrar factura ${repair.code} ", Toast.LENGTH_LONG).show()
+
+            val codigoRepair = repair.code
+            val intent = Intent(this, DisplayMostrarFacturaActivity::class.java)
+            intent.putExtra(
+                REPAIR_ID, codigoRepair
+            )
+            startActivity(intent)
+
+        }
+
+        binding.recyclerListaDeReparaciones.adapter =
+            RepairsAdapter(RepairRepository.get(), selectRepairClickLister)
+        binding.recyclerListaDeReparaciones.layoutManager = LinearLayoutManager(this)
+
+
         val manager = LinearLayoutManager(this)
         val decoration = DividerItemDecoration(this, manager.orientation)
-        binding.recyclerListaDeReparaciones.layoutManager = LinearLayoutManager(this)
-        binding.recyclerListaDeReparaciones.adapter =
-            RepairAdapter(RepairRepository.get()) { repair -> onClickItem(repair) }
-
         binding.recyclerListaDeReparaciones.addItemDecoration(decoration)
     }
-    fun onClickItem(repair: Repair){
 
-    }
 }

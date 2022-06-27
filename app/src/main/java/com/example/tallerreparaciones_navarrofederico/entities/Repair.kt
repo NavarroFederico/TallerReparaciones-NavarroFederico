@@ -27,7 +27,8 @@ class Repair(
         val month = this.completionDate.month
         val year = this.completionDate.year
 
-        val repairFilter = RepairRepository.searchRepairByMonth_Year_ClientCode(month, year, this.clientCode)
+        val repairFilter =
+            RepairRepository.searchRepairByMonth_Year_ClientCode(month, year, this.clientCode)
         var esLaPrimera = false
 
         if (repairFilter.size == 1) {
@@ -41,14 +42,13 @@ class Repair(
     }
 
 
-    fun mostrarFacturaDeReparacion() {
-//Todo falta completar
-        val serviceClient = ClientService()
+    fun mostrarFacturaDeReparacion(): String {
 
+        val texto: String
+        val serviceClient = ClientService()
         val cliente = serviceClient.categorizarCliente(clientCode)
         val serviceVehicle = VehicleService()
         val vehiculo = serviceVehicle.categorizarUnVehiculoConCoberturaOSinCobertura(clientCode)
-
         val totalSinDescuentos = calcularTotalSinDescuentos()
         val descuentoPorTipoDeCliente = cliente?.getDescuentoAAplicar(totalSinDescuentos)
         var descuentoPorSeguro = 0.0
@@ -61,14 +61,10 @@ class Repair(
             totalSinDescuentos - (descuentoPorTipoDeCliente?.plus(descuentoPorSeguro)!!)
 
         if (vehiculo == null) {
-            println("No se ha podido imprimir la factura. Revise los datos del vehiculo")
+            texto = "No se ha podido imprimir la factura. Revise los datos del vehiculo"
         } else {
-            println("""
-                
-                
-                
-                    ------------------------------------------------------------------------------------------------------- 
-                                                           + FACTURA*
+            texto = """
+                                                       
                     
                          Fecha de hoy ${LocalDate.now()} , fecha de reparacion : $completionDate
                          Reparación # $code
@@ -95,26 +91,25 @@ class Repair(
                                                                             Monto total:
                                                                                         $montoTotalConDescuentosAplicados
                             
-                    -------------------------------------------------------------------------------------------------------
-             
+                    
                 """.trimIndent()
-            )
-            println("")
+
 
         }
+        return texto
     }
 
 
-fun obtenerDetallesDeRepuestosUtilizados(): String {
-    var texto = ""
-    for (parteUsada in sparePartsUsed) {
-        val code = parteUsada.key
-        val unitsUsed = parteUsada.value
-        val priceByUnit = SparePartRepository.get(code)?.price
+    fun obtenerDetallesDeRepuestosUtilizados(): String {
+        var texto = ""
+        for (parteUsada in sparePartsUsed) {
+            val code = parteUsada.key
+            val unitsUsed = parteUsada.value
+            val priceByUnit = SparePartRepository.get(code)?.price
 
-        if (validarStock(code)) {
-            val subTotalPorParte = priceByUnit?.times(unitsUsed)
-            texto += """
+            if (validarStock(code)) {
+                val subTotalPorParte = priceByUnit?.times(unitsUsed)
+                texto += """
                         # $code : ${SparePartRepository.get(code)?.name}
                         Precio por Unidad $priceByUnit
                         Unidades utilizadas: $unitsUsed
@@ -122,43 +117,43 @@ fun obtenerDetallesDeRepuestosUtilizados(): String {
                         
                 """
 
-        } else {
-            texto +=
-                """ 
+            } else {
+                texto +=
+                    """ 
                         # $code : ${SparePartRepository.get(code)?.name}
                         NO POSEE STOCK DISPONIBLE PARA ESTA REPARACIÖN
                 """
+            }
         }
+        return texto
     }
-    return texto
-}
 
-fun calcularMontoTotalPorRepuestoUsados(): Double {
-    var montoTotal = 0.0
-    for (sparePartActual in sparePartsUsed) {
-        val codeDeParte = sparePartActual.key
-        val precioPorUnidad = SparePartRepository.get(codeDeParte)?.price
-        val cantidadUsadas = sparePartActual.value
+    fun calcularMontoTotalPorRepuestoUsados(): Double {
+        var montoTotal = 0.0
+        for (sparePartActual in sparePartsUsed) {
+            val codeDeParte = sparePartActual.key
+            val precioPorUnidad = SparePartRepository.get(codeDeParte)?.price
+            val cantidadUsadas = sparePartActual.value
 
-        if (precioPorUnidad != null && validarStock(codeDeParte)) {
-            montoTotal += precioPorUnidad * cantidadUsadas
+            if (precioPorUnidad != null && validarStock(codeDeParte)) {
+                montoTotal += precioPorUnidad * cantidadUsadas
 
+            }
         }
+        return montoTotal
     }
-    return montoTotal
-}
 
-fun calcularSubtotalPorManoDeObra(): Double {
-    return this.hoursWorked.times(precio_por_hora)
-}
+    fun calcularSubtotalPorManoDeObra(): Double {
+        return this.hoursWorked.times(precio_por_hora)
+    }
 
-fun calcularTotalSinDescuentos(): Double =
-    calcularMontoTotalPorRepuestoUsados().plus(calcularSubtotalPorManoDeObra())
+    fun calcularTotalSinDescuentos(): Double =
+        calcularMontoTotalPorRepuestoUsados().plus(calcularSubtotalPorManoDeObra())
 
 
-override fun toString(): String {
-    return "Repair(code=$code, clientCode=$clientCode, completionDate=$completionDate, sparePartsUsed=$sparePartsUsed, hoursWorked=$hoursWorked)"
-}
+    override fun toString(): String {
+        return "Repair(code=$code, clientCode=$clientCode, completionDate=$completionDate, sparePartsUsed=$sparePartsUsed, hoursWorked=$hoursWorked)"
+    }
 
 }
 

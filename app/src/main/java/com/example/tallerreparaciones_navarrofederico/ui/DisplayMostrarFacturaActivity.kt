@@ -10,5 +10,12 @@ class DisplayMostrarFacturaActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding= ActivityDisplayMostrarFacturaBinding.inflate(layoutInflater)
         setContentView(binding.root)
+    val codeRepair= intent.getIntExtra(REPAIR_ID,0)
+
+        binding.tvMostrar.text= RepairRepository.getByCodeRepair(codeRepair)
+            ?.mostrarFacturaDeReparacion()
+            .toString()
+
+
     }
 }
