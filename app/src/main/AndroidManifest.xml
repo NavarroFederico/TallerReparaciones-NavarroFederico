@@ -13,11 +13,19 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TallerReparacionesNavarroFederico"
         tools:targetApi="31">
-
+        <activity
+            android:name=".ui.DisplayRecyclerClientsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ui.DisplayMostrarTotalDeUnClienteActivity"
+            android:exported="true" />
+        <activity
+            android:name=".ui.DisplayRepairsFilterByClientActivity"
+            android:exported="false" />
         <activity
             android:name=".ui.DisplayMostrarFacturaActivity"
-            android:label="Factura"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Factura" />
         <activity
             android:name=".ui.DisplayBuscarYRecyclerRepairsActivity"
             android:exported="true" />

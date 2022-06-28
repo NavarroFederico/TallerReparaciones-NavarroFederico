@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:id="@+id/clients_card"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:backgroundTint="@color/white"
+app:cardCornerRadius="8dp"
+android:layout_marginBottom="3dp"
+android:layout_marginStart="5dp"
+android:layout_marginEnd="5dp"
+app:cardPreventCornerOverlap="true"
+app:cardUseCompatPadding="true">
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/clients_area"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/ivImagenClient"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@color/black" />
+
+        <TextView
+            android:id="@+id/tvClientCode"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/ivImagenClient"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Codigo# 1" />
+
+        <TextView
+            android:id="@+id/tvClientSurname"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/ivImagenClient"
+            app:layout_constraintTop_toBottomOf="@+id/tvClientCode"
+            tools:text="Apellido " />
+
+        <TextView
+            android:id="@+id/tvClientName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/ivImagenClient"
+            app:layout_constraintTop_toBottomOf="@+id/tvClientSurname"
+            tools:text="Nombre " />
+
+        <TextView
+            android:id="@+id/tvCantidadDeReparaciones"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toEndOf="@id/ivImagenClient"
+            app:layout_constraintTop_toBottomOf="@+id/tvClientName"
+            tools:text="Cantidad de Reparaciones " />
+
+        <TextView
+            android:id="@+id/tvTotalDeReparaciones"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+
+            android:layout_marginStart="24dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tvTotal"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/ivImagenClient"
+            tools:text="Total por Reparaciones" />
+
+        <TextView
+            android:id="@+id/tvTotal"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="@+id/tvTotalDeReparaciones"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tvTotalDeReparaciones"
+            app:layout_constraintTop_toTopOf="@id/tvTotalDeReparaciones"
+
+            app:layout_constraintTop_toBottomOf="@id/tvCantidadDeReparaciones"
+            app:layout_constraintVertical_bias="0.0"
+            tools:text="1500" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
