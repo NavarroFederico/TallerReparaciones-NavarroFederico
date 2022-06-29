@@ -103,4 +103,6 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="action_settings">Settings</string>
+    <string name="funcionalidad_en_proceso">Funcionalidad en Proceso</string>
+    <string name="seleccione_una_reparaci_n">Seleccione una reparación</string>
 </resources>
