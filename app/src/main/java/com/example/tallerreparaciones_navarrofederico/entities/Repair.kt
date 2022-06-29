@@ -49,10 +49,10 @@ class Repair(
         val cliente = serviceClient.categorizarCliente(clientCode)
         val serviceVehicle = VehicleService()
         val vehiculo = serviceVehicle.categorizarUnVehiculoConCoberturaOSinCobertura(clientCode)
+
         val totalSinDescuentos = calcularTotalSinDescuentos()
         val descuentoPorTipoDeCliente = cliente?.getDescuentoAAplicar(totalSinDescuentos)
         var descuentoPorSeguro = 0.0
-
 
         if (validarSiEsLaPrimeraReparacionDelMes()) {
             descuentoPorSeguro = vehiculo?.getDescuentoPorCobertura(calcularTotalSinDescuentos())!!

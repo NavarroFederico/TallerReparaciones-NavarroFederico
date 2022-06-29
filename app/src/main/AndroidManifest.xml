@@ -14,21 +14,43 @@
         android:theme="@style/Theme.TallerReparacionesNavarroFederico"
         tools:targetApi="31">
         <activity
-            android:name=".ui.DisplayRecyclerClientsActivity"
+            android:name=".ui.DisplayTotalDeRepacionesTallerActivity"
             android:exported="false" />
+        <activity
+            android:name=".ui.DisplayRecyclerClientsActivity"
+            android:exported="false"
+            android:label="Lista clientes"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".ui.DisplayMostrarTotalDeUnClienteActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Monto total de reparaciones"
+            android:parentActivityName=".ui.DisplayBuscarYRecyclerClientesActivity" />
         <activity
             android:name=".ui.DisplayRepairsFilterByClientActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:label="Lista de reparaciones"
+            android:parentActivityName=".ui.DisplayBuscarYRecyclerClientesActivity" />
         <activity
             android:name=".ui.DisplayMostrarFacturaActivity"
             android:exported="true"
-            android:label="Factura" />
+            android:label="Factura"
+            android:parentActivityName=".ui.DisplayBuscarYRecyclerRepairsActivity" />
         <activity
             android:name=".ui.DisplayBuscarYRecyclerRepairsActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:label="Lista de reparaciones"
+            android:parentActivityName=".ui.DisplayBotonOpcionesActivity" />
+        <activity
+            android:name=".ui.DisplayBuscarYRecyclerClientesActivity"
+            android:exported="false"
+            android:label="Lista de clientes"
+            android:parentActivityName=".ui.DisplayBotonOpcionesActivity" />
+        <activity
+            android:name=".ui.DisplayBotonOpcionesActivity"
+            android:exported="true"
+            android:label="Eliga una opción"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".MainActivity"
             android:exported="true">
@@ -38,12 +60,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".ui.DisplayBuscarYRecyclerClientesActivity"
-            android:exported="false" />
-        <activity
-            android:name=".ui.DisplayBotonOpcionesActivity"
-            android:exported="true" />
     </application>
 
 </manifest>

@@ -3,7 +3,7 @@ package com.example.tallerreparaciones_navarrofederico.entities
 class ConSeguro(numberPlate: String, clientCode: Int, insuranceCap: Double?, insuranceCoverangeFrom: Double?) : Vehicle(numberPlate, clientCode,
     insuranceCap,
     insuranceCoverangeFrom){
-//TODO que se aplique si es la primera del mes
+
     override fun getDescuentoPorCobertura(total: Double): Double {
     val descuentoPorCobertura: Double
 
