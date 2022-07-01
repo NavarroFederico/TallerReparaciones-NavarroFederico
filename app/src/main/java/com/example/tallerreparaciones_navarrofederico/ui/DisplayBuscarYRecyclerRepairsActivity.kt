@@ -5,7 +5,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.tallerreparaciones_navarrofederico.adapter.RepairsAdapter
 import com.example.tallerreparaciones_navarrofederico.databinding.ActivityDisplayBuscarYrecyclerRepairsBinding
@@ -15,7 +14,6 @@ val REPAIR_ID = "REPAIR_ID"
 
 class DisplayBuscarYRecyclerRepairsActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDisplayBuscarYrecyclerRepairsBinding
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,7 +25,7 @@ class DisplayBuscarYRecyclerRepairsActivity : AppCompatActivity() {
 
     private fun setUpRecyclerViewRepairs() {
         val selectRepairClickLister = { repair: Repair ->
-            Toast.makeText(this, "Mostrar factura ${repair.code} ", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Mostrar factura ${repair.code} ", Toast.LENGTH_SHORT).show()
 
             val codigoRepair = repair.code
             val intent = Intent(this, DisplayMostrarFacturaActivity::class.java)
@@ -42,7 +40,5 @@ class DisplayBuscarYRecyclerRepairsActivity : AppCompatActivity() {
             RepairsAdapter(RepairRepository.get(), selectRepairClickLister)
         binding.recyclerListaDeReparaciones.layoutManager = LinearLayoutManager(this)
 
-
     }
-
 }

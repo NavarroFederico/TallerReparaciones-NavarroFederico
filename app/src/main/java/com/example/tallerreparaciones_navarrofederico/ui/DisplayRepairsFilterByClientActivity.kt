@@ -17,14 +17,14 @@ class DisplayRepairsFilterByClientActivity : AppCompatActivity() {
         binding = ActivityDisplayRepairsFilterByClientBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val codeClientSelect = intent.getIntExtra(CLIENT_ID,0)
+        val codeClientSelect = intent.getIntExtra(CLIENT_ID, 0)
 
         setUpReciclerView(codeClientSelect)
     }
 
     private fun setUpReciclerView(codeClientSelect: Int) {
         val selectRepairClickLister = { repair: Repair ->
-            Toast.makeText(this, "Mostrar factura ${repair.code} ", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Mostrar factura ${repair.code} ", Toast.LENGTH_SHORT).show()
 
             val codigoRepair = repair.code
             val intent = Intent(this, DisplayMostrarFacturaActivity::class.java)
@@ -35,11 +35,10 @@ class DisplayRepairsFilterByClientActivity : AppCompatActivity() {
         }
 
         binding.recyclerViewRepairsByClient.adapter =
-            RepairsAdapter(RepairRepository.getAllRepairByClientCode(codeClientSelect), selectRepairClickLister)
+            RepairsAdapter(
+                RepairRepository.getAllRepairByClientCode(codeClientSelect),
+                selectRepairClickLister
+            )
         binding.recyclerViewRepairsByClient.layoutManager = LinearLayoutManager(this)
-
-
     }
-
-
 }

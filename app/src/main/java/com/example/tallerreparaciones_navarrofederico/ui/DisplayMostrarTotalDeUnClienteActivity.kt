@@ -3,7 +3,6 @@ package com.example.tallerreparaciones_navarrofederico.ui
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tallerreparaciones_navarrofederico.databinding.ActivityDisplayMostrarTotalDeUnClienteBinding
-import com.example.tallerreparaciones_navarrofederico.entities.Client
 import com.example.tallerreparaciones_navarrofederico.entities.ClientService
 
 class DisplayMostrarTotalDeUnClienteActivity : AppCompatActivity() {
@@ -30,6 +29,5 @@ class DisplayMostrarTotalDeUnClienteActivity : AppCompatActivity() {
         binding.tvCantidadDeReparaciones.text =
             "Cantidad de Reparaciones: " + client?.cantidadDeReparaciones().toString()
         binding.tvTotal.text = "$$montoTotal"
-
     }
 }

@@ -2,10 +2,11 @@ package com.example.tallerreparaciones_navarrofederico
 
 import android.content.Intent
 import android.os.Bundle
-import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tallerreparaciones_navarrofederico.databinding.ActivityMainBinding
-import com.example.tallerreparaciones_navarrofederico.ui.*
+import com.example.tallerreparaciones_navarrofederico.ui.DisplayBotonOpcionesActivity
+import com.example.tallerreparaciones_navarrofederico.ui.DisplayRecyclerClientsActivity
+import com.example.tallerreparaciones_navarrofederico.ui.DisplayTotalDeRepacionesTallerActivity
 
 class MainActivity : AppCompatActivity() {
     private lateinit var mainBinding: ActivityMainBinding

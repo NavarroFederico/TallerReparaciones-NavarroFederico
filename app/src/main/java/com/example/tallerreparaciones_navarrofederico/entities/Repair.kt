@@ -11,7 +11,6 @@ class Repair(
     val sparePartsUsed: Map<Int, Int>,// respuestos; codigo ,cantidad
     val hoursWorked: Int,//horas trabajadas
     val precio_por_hora: Double = 500.0
-
 ) {
     fun validarStock(codeDeParte: Int): Boolean {
         var hayStock = false
@@ -98,7 +97,6 @@ class Repair(
         }
         return texto
     }
-
 
     fun obtenerDetallesDeRepuestosUtilizados(): String {
         var texto = ""

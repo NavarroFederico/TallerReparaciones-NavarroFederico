@@ -10,20 +10,21 @@ import com.example.tallerreparaciones_navarrofederico.databinding.ActivityDispla
 import com.example.tallerreparaciones_navarrofederico.entities.Client
 
 class DisplayRecyclerClientsActivity : AppCompatActivity() {
-   private lateinit var binding: ActivityDisplayRecyclerClientsBinding
+    private lateinit var binding: ActivityDisplayRecyclerClientsBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding=  ActivityDisplayRecyclerClientsBinding.inflate(layoutInflater)
+        binding = ActivityDisplayRecyclerClientsBinding.inflate(layoutInflater)
         setContentView(binding.root)
         setUpRecyclerView()
     }
+
     private fun setUpRecyclerView() {
 
         val selectClientClickLister = { client: Client ->
             Toast.makeText(
                 this,
                 "Seleccionaste cliente : ${client.name} ${client.surname}",
-                Toast.LENGTH_LONG
+                Toast.LENGTH_SHORT
             ).show()
             val clientCodeSelect = client.code
             val intent = Intent(this, DisplayMostrarTotalDeUnClienteActivity::class.java)
@@ -31,7 +32,7 @@ class DisplayRecyclerClientsActivity : AppCompatActivity() {
             startActivity(intent)
 
         }
-        var adapter = ClientsAdapter(ClientRepository.get(), selectClientClickLister)
+        val adapter = ClientsAdapter(ClientRepository.get(), selectClientClickLister)
         binding.recyclerListaDeClientes.layoutManager = LinearLayoutManager(this)
         binding.recyclerListaDeClientes.adapter = adapter
 

@@ -1,11 +1,9 @@
 package com.example.tallerreparaciones_navarrofederico.adapter
 
+import ClientRepository
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.tallerreparaciones_navarrofederico.R
-import com.example.tallerreparaciones_navarrofederico.databinding.ActivityDisplayMostrarFacturaBinding
-import com.example.tallerreparaciones_navarrofederico.databinding.ItemClientBinding
 import com.example.tallerreparaciones_navarrofederico.databinding.ItemRepairBinding
 import com.example.tallerreparaciones_navarrofederico.entities.Repair
 

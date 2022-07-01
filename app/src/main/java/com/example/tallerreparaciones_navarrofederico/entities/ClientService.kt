@@ -13,23 +13,6 @@ class ClientService {
             }
         }
         return null
-        /*
-          if (clienteAux.cantidadDeReparaciones() == 1) {
-                return NewClient(codigoDeCliente, clienteAux.name, clienteAux.surname)
-            } else {
-                return RegularClient(codigoDeCliente, clienteAux.name, clienteAux.surname)
-            }
-         */
-        /*
-         fun calcularMontoTotalConDescuentosAplicados(clientActual: Client, vehicleActual: Vehicle): Double {
-        val totalSinDescuentos = calcularTotalSinDescuentos()
-        val descuentoPorTipoDeCliente = clientActual.getDescuentoAAplicar(totalSinDescuentos)
-        var descuentoPorSeguro = 0.0
-        if (validarSiEsLaPrimeraReparacionDelMes()) {
-            descuentoPorSeguro = vehicleActual.getDescuentoPorCobertura(calcularTotalSinDescuentos())
-        }
-        return totalSinDescuentos - (descuentoPorTipoDeCliente.plus(descuentoPorSeguro))
-    }
-         */
+
     }
 }
