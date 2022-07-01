@@ -2,6 +2,7 @@ package com.example.tallerreparaciones_navarrofederico
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.example.tallerreparaciones_navarrofederico.databinding.ActivityMainBinding
 import com.example.tallerreparaciones_navarrofederico.ui.*
@@ -31,6 +32,14 @@ class MainActivity : AppCompatActivity() {
         mainBinding.bCalcularGananciaDelTaller.setOnClickListener {
             val intent = Intent(this, DisplayTotalDeRepacionesTallerActivity::class.java)
             startActivity(intent)
+        }
+
+        //salir
+        mainBinding.bSalir.setOnClickListener {
+            finish()
+            android.os.Process.killProcess(android.os.Process.myPid())
+
+
         }
     }
 }

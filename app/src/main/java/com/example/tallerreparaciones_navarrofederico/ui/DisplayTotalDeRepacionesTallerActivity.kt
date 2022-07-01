@@ -3,6 +3,7 @@ package com.example.tallerreparaciones_navarrofederico.ui
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.tallerreparaciones_navarrofederico.databinding.ActivityDisplayTotalDeRepacionesTallerBinding
+import com.example.tallerreparaciones_navarrofederico.ui.*
 
 class DisplayTotalDeRepacionesTallerActivity : AppCompatActivity() {
     private lateinit var binding: ActivityDisplayTotalDeRepacionesTallerBinding

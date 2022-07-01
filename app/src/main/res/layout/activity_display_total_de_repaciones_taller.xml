@@ -8,9 +8,14 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:text="@string/funcionalidad_en_proceso"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:text="¡Falta poco!\nPróximamente estará Disponible esta funcionalidad"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
